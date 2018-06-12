@@ -52,6 +52,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-instal
 	mkdir /app && \
 	echo '#!/bin/bash\n\
 pkill -9 mosquitto\n\
+rm -f /data/find3/mosquitto_config/pid\n\
 cp -R -u -p /app/mosquitto_config /data\n\
 mkdir -p /data/logs\n\
 /usr/bin/supervisord\n'\
